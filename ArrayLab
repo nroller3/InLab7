@@ -1,0 +1,81 @@
+/**
+ * Creates an array of a specified length then performs many tasks on that array
+ * 
+ * @author Nathan Roller -02254188
+ * @version 3/11/2016
+ */
+public class ArrayLab
+{
+    private int[] integer;
+    
+    public ArrayLab(int num)
+    {
+        integer = new int[num]; 
+    }
+    
+    //feeds the array values for each index
+    public void initialize()
+    {
+        for (int i = 0; i < integer.length; i++)
+        {
+            integer[i] = (int) (Math.random() * 11);
+        }
+    }
+    
+    //prints out the array's numbers
+    public void print()
+    {
+        for(int i = 0; i < integer.length; i++)
+        {
+            System.out.print(integer[i] + ", ");
+        }
+        System.out.println("");
+        System.out.println("");
+    }
+    
+    //prints out the max, min, and average value of the array
+    public void printStats()
+    {
+        double total = 0.0;
+        int maximum = -1;
+        int minimum = 11;
+        for (int i : integer)
+        {
+            total += i;
+            if (i > maximum) 
+            {
+                maximum = i;
+            }
+            if (i < minimum)
+            {
+                minimum = i;
+            }
+        }
+        double average = total / integer.length;
+        
+        System.out.println("Average Value: " + average);
+        System.out.println("Maximum Value: " + maximum);
+        System.out.println("Minimum Value: " + minimum);
+    }
+    
+    //searches through the array to find a specific number in a specified index
+    public void search(int val)
+    {
+        boolean valFlag = false;
+        for (int i = 0; i < integer.length; i++)
+        {
+            if (integer[i] == val)
+            {
+                valFlag = true;
+            }
+        }
+        if (valFlag == true)
+        {
+            System.out.println(val + " was found.");
+        }
+        else
+        {
+            System.out.println(val + " was not found.");
+        }
+    }
+}
